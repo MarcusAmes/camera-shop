@@ -21,7 +21,7 @@ const removeCart = (id) => ({ type: REMOVE_CART, payload: id })
 
 export const getCameras = () => dispatch => {
   dispatch(
-    fetchCamerasLoading
+    fetchCamerasLoading()
   )
   return fetch('http://localhost:8082/api/cameras')
     .then(response => response.json())

@@ -7,7 +7,7 @@ class CameraList extends Component {
     const camerasListComponents = camerasList.map(camera => <CameraContainer key={camera.id} camera={ camera } />) 
     return (
       <>
-        {camerasListComponents}
+        {this.props.loading ? <p>Loading...</p> : camerasListComponents}
       </>
     )
   }

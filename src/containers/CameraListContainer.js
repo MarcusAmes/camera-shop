@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 const mapStateToProps = ({cameras}) => {
   return{
     cameras: cameras.cameras,
+    loading: cameras.camerasLoading,
     search: cameras.search
   }
 }

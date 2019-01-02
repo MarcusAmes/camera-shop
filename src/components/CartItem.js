@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'reactstrap'
+import { Button, Row, Col } from 'reactstrap'
 
 class CartItem extends Component {
   _onClick = (id) => {
@@ -9,10 +9,16 @@ class CartItem extends Component {
   render() {
     
     return (
-      <>
-        {this.props.camera.name}
-        <Button onClick={() => this._onClick(this.props.camera.id)} >Remove From Cart</Button>
-      </>
+      <div style={{marginBottom: "20px"}}>
+        <Row>
+          <Col>
+            {this.props.camera.name}
+          </Col>
+          <Col>
+            <Button onClick={() => this._onClick(this.props.camera.id)} >Remove From Cart</Button>
+          </Col>
+        </Row>
+      </div>
     )
   }
 }

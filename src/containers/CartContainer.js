@@ -1,5 +1,6 @@
 import Cart from '../components/Cart'
 import { connect } from 'react-redux'
+import { getCameras } from '../actions/cameraAction'
 
 const mapStateToProps = ({cameras}) => {
   return {
@@ -7,4 +8,14 @@ const mapStateToProps = ({cameras}) => {
   }
 }
 
-export default connect(mapStateToProps)(Cart)
+const mapDispatchToProps = dispatch => {
+  return {
+    getCameras: () => {
+      dispatch(
+        getCameras()
+      )
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)

@@ -5,20 +5,17 @@ import CartContainer from '../containers/CartContainer';
 import { Container, Row, Col } from 'reactstrap'
 
 class Shop extends Component {
-  componentDidMount() {
-    this.props.getCameras()
-  }
 
   render(){
     return (
-      <Container>
+      <Container style={{marginTop: "20px"}}>
         <Row>
-          <Col lg="8">
+          <Col lg="7">
             <SearchBarContainer />
             <CameraListContainer />
           </Col>
-          <Col lg="4">
-            <CartContainer />
+          <Col lg="5">
+            <CartContainer style={{position: "fixed", bottom: "0"}} />
           </Col>
         </Row>
       </Container>

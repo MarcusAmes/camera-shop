@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopNav from './components/TopNav';
 import { Switch, Route } from 'react-router-dom'
-import ShopContainer from './containers/ShopContainer';
+import Shop from './components/Shop';
 import CheckoutContainer from './containers/CheckoutContainer';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
         <TopNav />
 
         <Switch>
-          <Route exact path="/" component={ShopContainer}/>
+          <Route exact path="/" component={Shop}/>
           <Route path="/checkout" component={CheckoutContainer} />
         </Switch>
       </div>
@@ -19,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default (App);
