@@ -11,6 +11,12 @@ const fetchCamerasError = () => ({ type: FETCH_CAMERAS_ERROR })
 export const EDIT_SEARCH = "EDIT_SEARCH"
 const editSearch = (search) => ({ type: EDIT_SEARCH, payload: search })
 
+export const ADD_CART = "ADD_CART"
+const addCart = (id, camera) => ({ type: ADD_CART, payload: {id: id, camera: camera} })
+
+export const REMOVE_CART = "REMOVE_CART"
+const removeCart = (id) => ({ type: REMOVE_CART, payload: id })
+
 //THUNKS
 
 export const getCameras = () => dispatch => {
@@ -35,4 +41,34 @@ export const filter = (search) => dispatch => {
   dispatch(
     editSearch(search)
   )
+}
+
+export const addToCart = (id) => dispatch => {
+  return fetch(`http://localhost:8082/api/cameras/${id}/add`, {
+    method: 'PATCH',
+    // body: JSON.stringify(),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => res.json)
+  .then(camera => 
+    dispatch(
+      addCart(id, camera)
+    )
+  )
+}
+
+export const removeFromCart = (id) => dispatch => {
+  return fetch(`http://localhost:8082/api/cameras/${id}/remove`, {
+      method: 'PATCH',
+      // body: JSON.stringify(),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json)
+    .then(camera =>
+      dispatch(
+        removeCart(id, camera)
+      )
+    )
 }

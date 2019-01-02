@@ -1,4 +1,4 @@
-import { FETCH_CAMERAS_LOADING, FETCH_CAMERAS_SUCCESS, FETCH_CAMERAS_ERROR, EDIT_SEARCH } from "../actions/cameraAction";
+import { FETCH_CAMERAS_LOADING, FETCH_CAMERAS_SUCCESS, FETCH_CAMERAS_ERROR, EDIT_SEARCH, ADD_CART, REMOVE_CART } from "../actions/cameraAction";
 
 const initState = {
   cameras: [],
@@ -29,6 +29,22 @@ const cameraReducer = (state = initState, action) => {
     return {
       ...state,
       search: action.payload
+    }
+    case ADD_CART:
+    const addCameraId = state.cameras.findIndex(camera => camera.id === action.payload.id)
+    const addNewCameraList = state.cameras
+    addNewCameraList.splice(addCameraId, 1, action.payload.camera)
+    return {
+      ...state,
+      cameras: addNewCameraList
+    }
+    case REMOVE_CART:
+    const removeCameraId = state.cameras.findIndex(camera => camera.id === action.payload.id)
+    const removeNewCameraList = state.cameras
+    removeNewCameraList.splice(removeCameraId, 1, action.payload.camera)
+    return {
+      ...state,
+      cameras: removeNewCameraList
     }
     default:
       return state;

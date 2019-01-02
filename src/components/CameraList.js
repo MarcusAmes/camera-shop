@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Camera from './Camera';
+import CameraContainer from '../containers/CameraContainer';
 
 class CameraList extends Component {
   render() {
@@ -7,7 +7,7 @@ class CameraList extends Component {
     if (this.props.search.length) {
       camerasList = camerasList.filter(camera => camera.name.toLowerCase().includes(this.props.search.toLowerCase()) && !camera.inCart)
     }
-    const camerasListComponents = camerasList.map(camera => <Camera key={camera.id} camera={ camera } />) 
+    const camerasListComponents = camerasList.map(camera => <CameraContainer key={camera.id} camera={ camera } />) 
     return (
       <>
         {camerasListComponents}
