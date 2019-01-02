@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import cameraReducer from './cameraReducer'
 
 const rootReducer = combineReducers({
-  camera: cameraReducer
+  cameras: cameraReducer
 })
 
 export default rootReducer

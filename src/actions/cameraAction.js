@@ -8,7 +8,8 @@ const fetchCamerasSuccess = (cameras) => ({ type: FETCH_CAMERAS_SUCCESS, payload
 export const FETCH_CAMERAS_ERROR = "FETCH_CAMERAS_ERROR";
 const fetchCamerasError = () => ({ type: FETCH_CAMERAS_ERROR })
 
-
+export const EDIT_SEARCH = "EDIT_SEARCH"
+const editSearch = (search) => ({ type: EDIT_SEARCH, payload: search })
 
 //THUNKS
 
@@ -28,4 +29,10 @@ export const getCameras = () => dispatch => {
         fetchCamerasError()
       )
     })
+}
+
+export const filter = (search) => dispatch => {
+  dispatch(
+    editSearch(search)
+  )
 }
