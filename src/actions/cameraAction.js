@@ -12,10 +12,10 @@ export const EDIT_SEARCH = "EDIT_SEARCH"
 const editSearch = (search) => ({ type: EDIT_SEARCH, payload: search })
 
 export const ADD_CART = "ADD_CART"
-const addCart = (id) => ({ type: ADD_CART, payload: id })
+const addCart = (id, camera) => ({ type: ADD_CART, payload: {id: id, camera: camera} })
 
 export const REMOVE_CART = "REMOVE_CART"
-const removeCart = (id) => ({ type: REMOVE_CART, payload: id })
+const removeCart = (id, camera) => ({ type: REMOVE_CART, payload: {id: id, camera: camera} })
 
 //THUNKS
 
@@ -50,12 +50,11 @@ export const addToCart = (id) => dispatch => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(res => {
-    if (res.ok){
-      dispatch(
-        addCart(id)
-      )
-    }
+  }).then(res => res.json())
+  .then(json => {
+    dispatch(
+      addCart(id, json)
+    )
   })
 }
 
@@ -66,7 +65,7 @@ export const removeFromCart = (id) => dispatch => {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(res => res.json)
+    }).then(res => res.json())
     .then(camera =>
       dispatch(
         removeCart(id, camera)

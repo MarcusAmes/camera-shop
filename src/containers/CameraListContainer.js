@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = ({cameras}) => {
   return{
-    cameras: cameras.cameras,
+    cameras: cameras.cameras.filter(() => true),
     loading: cameras.camerasLoading,
     search: cameras.search
   }

@@ -10,12 +10,14 @@ class Shop extends Component {
     return (
       <Container style={{marginTop: "20px"}}>
         <Row>
-          <Col lg="7">
+          <Col lg="7" >
             <SearchBarContainer />
-            <CameraListContainer />
+            <div style={{height: "80vh", overflow: "auto"}}>
+              <CameraListContainer />
+            </div>
           </Col>
           <Col lg="5">
-            <CartContainer style={{position: "fixed", bottom: "0"}} />
+            <CartContainer />          
           </Col>
         </Row>
       </Container>

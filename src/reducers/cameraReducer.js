@@ -31,17 +31,17 @@ const cameraReducer = (state = initState, action) => {
       search: action.payload
     }
     case ADD_CART:
-    const addCameraId = state.cameras.findIndex(camera => camera.id === action.payload)
+    const addCameraId = state.cameras.findIndex(camera => camera.id === action.payload.id)
     const addNewCameraList = state.cameras
-    addNewCameraList[addCameraId].inCart = true
+    addNewCameraList[addCameraId] = action.payload.camera
     return {
       ...state,
       cameras: addNewCameraList
     }
     case REMOVE_CART:
-    const removeCameraId = state.cameras.findIndex(camera => camera.id === action.payload)
+    const removeCameraId = state.cameras.findIndex(camera => camera.id === action.payload.id)
     const removeNewCameraList = state.cameras
-    removeNewCameraList[removeCameraId].inCart = false   
+    removeNewCameraList[removeCameraId] = action.payload.camera  
     return {
       ...state,
       cameras: removeNewCameraList

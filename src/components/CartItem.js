@@ -15,7 +15,7 @@ class CartItem extends Component {
             {this.props.camera.name}
           </Col>
           <Col>
-            <Button onClick={() => this._onClick(this.props.camera.id)} >Remove From Cart</Button>
+            <Button onClick={() => this._onClick(this.props.camera.id)} >Remove</Button>
           </Col>
         </Row>
       </div>
