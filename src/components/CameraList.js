@@ -3,10 +3,7 @@ import CameraContainer from '../containers/CameraContainer';
 
 class CameraList extends Component {
   render() {
-    let camerasList = this.props.cameras
-    if (this.props.search.length) {
-      camerasList = camerasList.filter(camera => camera.name.toLowerCase().includes(this.props.search.toLowerCase()) && !camera.inCart)
-    }
+    const camerasList = this.props.cameras.filter(camera => camera.name.toLowerCase().includes(this.props.search.toLowerCase()))
     const camerasListComponents = camerasList.map(camera => <CameraContainer key={camera.id} camera={ camera } />) 
     return (
       <>

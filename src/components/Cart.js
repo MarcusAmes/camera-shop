@@ -7,6 +7,7 @@ import {
   Button
 } from 'reactstrap';
 import CartItemContainer from '../containers/CartItemContainer';
+import { Link } from 'react-router-dom'
 
 class Cart extends Component {
   render() {
@@ -23,7 +24,7 @@ class Cart extends Component {
           <CardSubtitle>Subtotal: ${subtotal} </CardSubtitle>
           <CardSubtitle>Tax: ${tax} </CardSubtitle>
           <CardSubtitle>Total: ${total} </CardSubtitle>
-          <Button>Checkout</Button>
+          <Button><Link to='/checkout' style={{ textDecoration: 'none', color: 'white' }}> Checkout </Link></Button>
         </CardBody>
       </Card>
     )

@@ -12,7 +12,7 @@ export const EDIT_SEARCH = "EDIT_SEARCH"
 const editSearch = (search) => ({ type: EDIT_SEARCH, payload: search })
 
 export const ADD_CART = "ADD_CART"
-const addCart = (id, camera) => ({ type: ADD_CART, payload: {id: id, camera: camera} })
+const addCart = (id) => ({ type: ADD_CART, payload: id })
 
 export const REMOVE_CART = "REMOVE_CART"
 const removeCart = (id) => ({ type: REMOVE_CART, payload: id })
@@ -50,12 +50,13 @@ export const addToCart = (id) => dispatch => {
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(res => res.json)
-  .then(camera => 
-    dispatch(
-      addCart(id, camera)
-    )
-  )
+  }).then(res => {
+    if (res.ok){
+      dispatch(
+        addCart(id)
+      )
+    }
+  })
 }
 
 export const removeFromCart = (id) => dispatch => {

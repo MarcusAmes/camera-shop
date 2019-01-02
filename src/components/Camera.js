@@ -10,8 +10,6 @@ import {
 
 class Camera extends Component {
   _onClick = (id) => {
-    console.log(id);
-    
     this.props.addToCart(id)
   }
 

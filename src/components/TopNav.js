@@ -6,15 +6,16 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 function TopNav(props) {
   return (
     <div>
         <Navbar color="primary" light expand="md">
-          <NavbarBrand>Camera Shop</NavbarBrand>
+          <NavbarBrand tag={Link} to="/">Camera Shop</NavbarBrand>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
+              <NavLink tag={Link} to="/">Components</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
