@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import {
-  Row,
-  Col,
   Card,
   CardImg,
   CardBody,
@@ -11,23 +9,23 @@ import {
 } from 'reactstrap';
 
 class Camera extends Component {
+  _onClick = (id) => {
+
+  }
+
   render() {
     
     return (
-      <Row>
-        <Col sm="6">
-          <Card>
-            <CardBody>
-              <CardTitle> {this.props.camera.name} </CardTitle>
-            </CardBody>
-            <CardImg width="100px" src={this.props.camera.picture} alt="Card image cap" />
-            <CardBody>
-              <CardSubtitle>${this.props.camera.price}</CardSubtitle>
-              <Button>Add To Cart</Button>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+      <Card>
+        <CardBody>
+          <CardTitle> <h1> {this.props.camera.name} </h1> </CardTitle>
+        </CardBody>
+        <CardImg width="100px" src={this.props.camera.picture} alt="Card image cap" />
+        <CardBody>
+          <CardSubtitle>${this.props.camera.price}</CardSubtitle>
+          <Button onClick={() => this._onClick(this.props.camera.id)} >Add To Cart</Button>
+        </CardBody>
+      </Card>
     )
   }
 }
