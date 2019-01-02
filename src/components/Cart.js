@@ -18,19 +18,19 @@ class Cart extends Component {
   render() {
     const subtotal = (Math.round(100 * this.props.cameras.reduce((acc, camera) => acc + camera.price, 0)) / 100).toFixed(2)
     const tax = (Math.round(100 * Number(subtotal) * .086) / 100).toFixed(2)
-    const total = (Math.round(100 * Number(subtotal) + Number(tax)) / 100).toFixed(2)
+    const total = (Math.round(100 * (Number(subtotal) + Number(tax))) / 100).toFixed(2)
     const cartList = this.props.cameras.map(camera => <CartItemContainer key={camera.id} camera={camera} />)
     return (
       <Card body inverse color="warning">
         <CardBody>
           <CardTitle style={{textAlign: "center"}}> Your Cart: </CardTitle>
           <Container>
-            {this.props.cameras.length === 0 ? <p> Empty </p> : cartList }
+            {this.props.cameras.length === 0 ? <h5 style={{textAlign: "center"}}> Empty </h5> : cartList }
           </Container>
           <div style={{textAlign: "center"}}>
             <CardSubtitle >Subtotal: ${subtotal} </CardSubtitle>
             <CardSubtitle>Tax: ${tax} </CardSubtitle>
-            <CardSubtitle><h6> Total: ${total} </h6> </CardSubtitle>
+            <CardSubtitle><h5> Total: ${total} </h5> </CardSubtitle>
             {!this.props.checkout && <Button><Link to='/checkout' style={{ textDecoration: 'none', color: 'white' }}> Checkout </Link></Button>}
           </div>
         </CardBody>
